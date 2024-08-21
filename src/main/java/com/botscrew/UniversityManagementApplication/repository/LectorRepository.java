@@ -8,6 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface LectorRepository extends JpaRepository<Lector, Long> {
-    @Query(value = "SELECT l.name FROM Lector l WHERE l.name LIKE %:keyword%")
-    public List<String> findByKeyword(@Param("keyword") String keyword);
+    @Query("SELECT l.name FROM Lector l WHERE l.name LIKE %:template%")
+    public List<String> findByTemplate(@Param("template") String template);
 }

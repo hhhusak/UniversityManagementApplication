@@ -23,7 +23,7 @@ public class UniversityManagementApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
-		while(true) {
+		while (true) {
 			System.out.print("Enter a command: ");
 			String command = scanner.nextLine();
 			handleCommand(command);
@@ -31,7 +31,7 @@ public class UniversityManagementApplication implements CommandLineRunner {
 	}
 
 	private void handleCommand(String command) {
-		if(command.startsWith("Who is head of department ")) {
+		if (command.startsWith("Who is head of department ")) {
 			String departmentName = command.split("department ")[1];
 			universityService.findHeadOfDepartment(departmentName);
 		} else if (command.startsWith("Show") && command.contains("statistics")) {

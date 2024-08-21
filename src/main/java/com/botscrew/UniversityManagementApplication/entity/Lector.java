@@ -8,12 +8,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -32,7 +32,7 @@ public class Lector {
     @Enumerated(EnumType.STRING)
     private Degree degree;
 
-    private double salary;
+    private BigDecimal salary;
 
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "lectors")
     private List<Department> department;
