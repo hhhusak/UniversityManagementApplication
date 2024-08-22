@@ -6,6 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @SpringBootApplication
 public class UniversityManagementApplication implements CommandLineRunner {
@@ -35,7 +37,9 @@ public class UniversityManagementApplication implements CommandLineRunner {
 			String departmentName = command.split("department ")[1];
 			universityService.findHeadOfDepartment(departmentName);
 		} else if (command.startsWith("Show") && command.contains("statistics")) {
-			String departmentName = command.substring("Show".length() + 1, command.length() - "statistics".length() - 1);
+			Pattern pattern = Pattern.compile("Show\\s+(.+?)\\s+statistics");
+			Matcher matcher = pattern.matcher(command);
+			String departmentName = matcher.group(1);
 			universityService.countDepartmentStatistics(departmentName);
 		} else if (command.startsWith("Show the average salary for the department")) {
 			String departmentName = command.split("department ")[1];

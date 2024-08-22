@@ -55,7 +55,7 @@ public class UniversityService {
             return;
         }
 
-        System.out.println("The average salary of " + departmentName + " is " + averageSalary);
+        System.out.format("The average salary of %s is %s", departmentName, averageSalary);
     }
 
     public void getDepartmentEmployeeCount(String departmentName) {
@@ -66,7 +66,7 @@ public class UniversityService {
             return;
         }
 
-        long employeeCount = department.getLectors().size();
+        long employeeCount = departmentRepository.countDepartmentLectors(departmentName);
 
         System.out.println(employeeCount);
     }

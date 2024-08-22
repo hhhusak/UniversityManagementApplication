@@ -24,4 +24,7 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
     @Query("SELECT d.name FROM Department d WHERE d.name LIKE %:template%")
     List<String> findByTemplate(@Param("template") String template);
 
+    @Query("SELECT COUNT(l) FROM Lector l JOIN l.department d WHERE d.name = :departmentName")
+    long countDepartmentLectors(String departmentName);
+
 }
