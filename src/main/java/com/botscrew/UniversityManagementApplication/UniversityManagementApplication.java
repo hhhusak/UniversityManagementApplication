@@ -39,8 +39,12 @@ public class UniversityManagementApplication implements CommandLineRunner {
 		} else if (command.startsWith("Show") && command.contains("statistics")) {
 			Pattern pattern = Pattern.compile("Show\\s+(.+?)\\s+statistics");
 			Matcher matcher = pattern.matcher(command);
-			String departmentName = matcher.group(1);
-			universityService.countDepartmentStatistics(departmentName);
+			if (matcher.find()) {
+				String departmentName = matcher.group(1);
+				universityService.countDepartmentStatistics(departmentName);
+			} else {
+				System.out.println("Invalid command format");
+			}
 		} else if (command.startsWith("Show the average salary for the department")) {
 			String departmentName = command.split("department ")[1];
 			universityService.getDepartmentAverageSalary(departmentName);

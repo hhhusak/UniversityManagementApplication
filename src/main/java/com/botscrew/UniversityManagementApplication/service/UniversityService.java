@@ -55,7 +55,7 @@ public class UniversityService {
             return;
         }
 
-        System.out.format("The average salary of %s is %s", departmentName, averageSalary);
+        System.out.format("The average salary of %s is %s\n", departmentName, averageSalary);
     }
 
     public void getDepartmentEmployeeCount(String departmentName) {
